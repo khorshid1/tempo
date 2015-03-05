@@ -1,0 +1,42 @@
+Song: 
+  name: string
+  year_released: string
+  artist_id: integer
+  answer: string
+
+Artist: 
+  name: string
+  song: string
+  song_id: integer
+
+Owner: 
+  song_id: integer
+  artist_id: integer
+
+User: 
+  email: string
+  password_digest: string
+  name: string
+  answer: string
+
+Question: 
+  test: string
+  song_id: integer
+  artist_id: integer
+
+Choice: 
+  question_id: integer
+  song_id: integer
+  text: string
+
+Answer: 
+  question_id: integer
+  choice_id: integer
+  song_id: integer
+
+Review: 
+  song_id: integer
+  user_id: integer
+  rating: integer
+  body: text
+
