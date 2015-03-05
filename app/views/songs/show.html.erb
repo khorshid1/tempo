@@ -6,4 +6,29 @@
 
 <p>Artist: <%= @song.artist.name %></p>
 
-<p>Take a quick one-question poll</p>
+<h3>Take a quick poll</h3>
+
+<%= form_for @song do |form| %>
+  <div class="form-group">
+    <%= form.label :Do_you_like_the_artist_voice %>
+    <%= form.text_field :answer, class: "form-control" %>
+  </div>
+
+  <div class="radio">
+    <%= form.label :Do_you_like_the_artist_voice %>
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+    Option one is this and that; be sure to include why it's great
+      </label>
+  </div>
+
+  <div class="radio">
+    <label>
+      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+      Option two can be something else and selecting it will deselect option one
+    </label>
+  </div>
+
+<%= form.button 'Submit', class: "btn btn-success" %>
+
+<% end %>
