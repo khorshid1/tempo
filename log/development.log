@@ -357,3 +357,1378 @@ Completed 200 OK in 102ms (Views: 17.0ms | ActiveRecord: 1.0ms)
 
 
 Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-02-27 17:03:27 -0600
+  [1m[36m (36.0ms)[0m  [1mALTER TABLE "songs" ADD "answer" varchar[0m
+  [1m[35m (41.0ms)[0m  CREATE TABLE "surveys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL) 
+  [1m[36m (4.0ms)[0m  [1mALTER TABLE "surveys" ADD "name" varchar[0m
+  [1m[35m (4.0ms)[0m  ALTER TABLE "questions" ADD "survey_id" integer
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_artist_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_artist_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+[0m
+  [1m[35m (4.0ms)[0m  CREATE  INDEX "index_questions_on_survey_id" ON "questions" ("survey_id")
+  [1m[36m (4.0ms)[0m  [1mALTER TABLE "users" ADD "password_digest" varchar[0m
+  [1m[35m (4.0ms)[0m  DROP TABLE "choices"
+  [1m[36m (4.0ms)[0m  [1mDROP TABLE "answers"[0m
+  [1m[35m (5.0ms)[0m  DROP TABLE "reviews"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TEMPORARY TABLE "aartists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "song" varchar, "song_id" integer) 
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_artists_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_artists_on_song_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  CREATE  INDEX "tindex_aartists_on_song_id" ON "aartists" ("song_id")
+  [1m[36m (1.0ms)[0m  [1mSELECT * FROM "artists"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aartists" ("id","name","song","song_id") VALUES (1, 'Glenton Davis', NULL, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aartists" ("id","name","song","song_id") VALUES (2, 'MediaSoulPop', NULL, NULL)[0m
+  [1m[35m (1.0ms)[0m  DROP TABLE "artists"
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "artists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "song_id" integer) [0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aartists_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aartists_on_song_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1mCREATE  INDEX "index_artists_on_song_id" ON "artists" ("song_id")[0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "aartists"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "artists" ("id","name","song_id") VALUES (1, 'Glenton Davis', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "artists" ("id","name","song_id") VALUES (2, 'MediaSoulPop', NULL)
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "aartists"[0m
+  [1m[35m (5.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TEMPORARY TABLE "aartists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "song_id" integer) 
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_artists_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_artists_on_song_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  CREATE  INDEX "tindex_aartists_on_song_id" ON "aartists" ("song_id")
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "artists"[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "aartists" ("id","name","song_id") VALUES (1, 'Glenton Davis', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aartists" ("id","name","song_id") VALUES (2, 'MediaSoulPop', NULL)[0m
+  [1m[35m (1.0ms)[0m  DROP TABLE "artists"
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "artists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar) [0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aartists_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aartists_on_song_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "aartists"[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "artists" ("id","name") VALUES (1, 'Glenton Davis')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "artists" ("id","name") VALUES (2, 'MediaSoulPop')[0m
+  [1m[35m (0.0ms)[0m  DROP TABLE "aartists"
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mCREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "password" varchar, "name" varchar, "zip_code" integer, "password_digest" varchar) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "users"
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "name" varchar, "zip_code" integer, "password_digest" varchar) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "ausers"[0m
+  [1m[35m (0.0ms)[0m  DROP TABLE "ausers"
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mCREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "name" varchar, "zip_code" integer, "password_digest" varchar) [0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "users"
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "name" varchar, "password_digest" varchar) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "ausers"[0m
+  [1m[35m (0.0ms)[0m  DROP TABLE "ausers"
+  [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TEMPORARY TABLE "aquestions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar, "song_id" integer, "artist_id" integer, "survey_id" integer) [0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_artist_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_artist_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1mCREATE  INDEX "tindex_aquestions_on_survey_id" ON "aquestions" ("survey_id")[0m
+  [1m[35m (0.0ms)[0m  CREATE  INDEX "tindex_aquestions_on_artist_id" ON "aquestions" ("artist_id")
+  [1m[36m (0.0ms)[0m  [1mCREATE  INDEX "tindex_aquestions_on_song_id" ON "aquestions" ("song_id")[0m
+  [1m[35m (0.0ms)[0m  SELECT * FROM "questions"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aquestions" ("id","text","song_id","artist_id","survey_id") VALUES (1, 'How would you describe this artist''s voice?', 5, 1, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aquestions" ("id","text","song_id","artist_id","survey_id") VALUES (2, 'Is it interesting to you that the artist wrote this during a difficult time he experienced at Yale?', 1, 1, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aquestions" ("id","text","song_id","artist_id","survey_id") VALUES (3, 'What would make you like this song more?', 5, 1, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aquestions" ("id","text","song_id","artist_id","survey_id") VALUES (4, 'How did you ultimately consume this song?', 5, 1, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aquestions" ("id","text","song_id","artist_id","survey_id") VALUES (5, 'Is it interesting to you that the artist wrote this song about a molecular reaction he mixed in a Chemistry class?', 2, 1, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aquestions" ("id","text","song_id","artist_id","survey_id") VALUES (6, 'Is it interesting to you that the artist founded an arts education nonprofit while on tour in 2010?', 3, 1, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aquestions" ("id","text","song_id","artist_id","survey_id") VALUES (7, 'Is it interesting to you that the artist credits fellow Ivy-Leaguer John Legend as a creative influence?', 4, 1, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aquestions" ("id","text","song_id","artist_id","survey_id") VALUES (8, 'Is it interesting to you that the artist re-arrangned this Beyonce hit to reflect his jazz training?', 5, 1, NULL)
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "questions"[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar, "song_id" integer, "survey_id" integer) 
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aquestions_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aquestions_on_song_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aquestions_on_artist_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aquestions_on_artist_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aquestions_on_survey_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aquestions_on_survey_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  CREATE  INDEX "index_questions_on_song_id" ON "questions" ("song_id")
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  CREATE  INDEX "index_questions_on_survey_id" ON "questions" ("survey_id")
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "aquestions"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "questions" ("id","text","song_id","survey_id") VALUES (1, 'How would you describe this artist''s voice?', 5, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "questions" ("id","text","song_id","survey_id") VALUES (2, 'Is it interesting to you that the artist wrote this during a difficult time he experienced at Yale?', 1, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "questions" ("id","text","song_id","survey_id") VALUES (3, 'What would make you like this song more?', 5, NULL)
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "questions" ("id","text","song_id","survey_id") VALUES (4, 'How did you ultimately consume this song?', 5, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "questions" ("id","text","song_id","survey_id") VALUES (5, 'Is it interesting to you that the artist wrote this song about a molecular reaction he mixed in a Chemistry class?', 2, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "questions" ("id","text","song_id","survey_id") VALUES (6, 'Is it interesting to you that the artist founded an arts education nonprofit while on tour in 2010?', 3, NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "questions" ("id","text","song_id","survey_id") VALUES (7, 'Is it interesting to you that the artist credits fellow Ivy-Leaguer John Legend as a creative influence?', 4, NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "questions" ("id","text","song_id","survey_id") VALUES (8, 'Is it interesting to you that the artist re-arrangned this Beyonce hit to reflect his jazz training?', 5, NULL)[0m
+  [1m[35m (1.0ms)[0m  DROP TABLE "aquestions"
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+
+  [1m[36m (1.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (5.0ms)[0m  DELETE FROM "artists"
+  [1m[36mSQL (4.0ms)[0m  [1mDELETE FROM "songs"[0m
+  [1m[35mSQL (5.0ms)[0m  DELETE FROM "surveys"
+  [1m[36mSQL (6.0ms)[0m  [1mDELETE FROM "questions"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (4.0ms)[0m  DELETE FROM "artists"
+  [1m[36mSQL (4.0ms)[0m  [1mDELETE FROM "songs"[0m
+  [1m[35mSQL (4.0ms)[0m  DELETE FROM "surveys"
+  [1m[36mSQL (4.0ms)[0m  [1mDELETE FROM "questions"[0m
+  [1m[35mSQL (4.0ms)[0m  DELETE FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "artists" ("name") VALUES (?)  [["name", "Glenton Davis"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "artists" ("name") VALUES (?)[0m  [["name", "MediaSoulPop"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)  [["name", "Alone"], ["year_released", "2008"], ["artist_id", 3]]
+  [1m[36m (45.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)[0m  [["name", "Go Get on the Floor - Extended Club Remix"], ["year_released", "2010"], ["artist_id", 3]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)  [["name", "You Should Know"], ["year_released", "2008"], ["artist_id", 3]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)[0m  [["name", "She Don't Have to Know"], ["year_released", "2009"], ["artist_id", 4]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)  [["name", "Dangerously In Love Part 2"], ["year_released", "2009"], ["artist_id", 4]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "surveys" ("name") VALUES (?)[0m  [["name", "Content"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "surveys" ("name") VALUES (?)  [["name", "Community"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "surveys" ("name") VALUES (?)[0m  [["name", "Critique"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "surveys" ("name") VALUES (?)  [["name", "Consumption"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 6], ["survey_id", 1], ["text", "How would you describe this artist's voice?"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 7], ["survey_id", 1], ["text", "How would you describe this artist's voice?"]]
+  [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 7], ["survey_id", 2], ["text", "Is it interesting to you that the artist wrote this song about a molecular reaction he mixed in a Chemistry class?"]]
+  [1m[35m (31.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 8], ["survey_id", 1], ["text", "How would you describe this artist's voice?"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 8], ["survey_id", 2], ["text", "Is it interesting to you that the artist founded an arts education nonprofit while on tour in 2010?"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 8], ["survey_id", 3], ["text", "What would make you like this song more?"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 9], ["survey_id", 1], ["text", "How would you describe this artist's voice?"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 9], ["survey_id", 2], ["text", "Is it interesting to you that the artist credits fellow Ivy-Leaguer John Legend as a creative influence?"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 9], ["survey_id", 3], ["text", "What would make you like this song more?"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 9], ["survey_id", 4], ["text", "How did you ultimately consume this song?"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 10], ["survey_id", 1], ["text", "How would you describe this artist's voice?"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (28.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 10], ["survey_id", 2], ["text", "Is it interesting to you that the artist re-arrangned this Beyonce hit to reflect his jazz training?"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 10], ["survey_id", 3], ["text", "What would make you like this song more?"]]
+  [1m[35m (31.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 10], ["survey_id", 4], ["text", "How did you ultimately consume this song?"]]
+  [1m[36m (39.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 10], ["survey_id", 2], ["text", "Is it interesting to you that the artist wrote this during a difficult time he experienced at Yale?"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("name", "email", "password_digest") VALUES (?, ?, ?)  [["name", "Brian"], ["email", "b-eng@kellogg.northwestern.edu"], ["password_digest", "$2a$10$Gy6RqjfMik/xn6oa3euByegiuwsXSW15Ca.g4JTkOT7ACTozTd3vO"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "artists"
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "songs"[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "surveys"
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "questions"[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  [1m[35mSurvey Load (0.0ms)[0m  SELECT "surveys".* FROM "surveys"
+  [1m[36mQuestion Load (1.0ms)[0m  [1mSELECT "questions".* FROM "questions"[0m
+  [1m[35mArtist Load (1.0ms)[0m  SELECT "artists".* FROM "artists"
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:07:26 -0600
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (5.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (108.0ms)
+Completed 200 OK in 247ms (Views: 145.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-03-05 15:07:27 -0600
+
+
+Started GET "/songs/6" for ::1 at 2015-03-05 15:07:38 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mSong Load (0.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered songs/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 83ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs/7" for ::1 at 2015-03-05 15:07:41 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 7]]
+  Rendered songs/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs/8" for ::1 at 2015-03-05 15:07:44 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mSong Load (0.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 8]]
+  Rendered songs/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 25ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs/9" for ::1 at 2015-03-05 15:07:46 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mSong Load (1.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 9]]
+  Rendered songs/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 58ms (Views: 56.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/songs/10" for ::1 at 2015-03-05 15:07:48 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mSong Load (0.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 10]]
+  Rendered songs/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/songs/new" for ::1 at 2015-03-05 15:07:50 -0600
+Processing by SongsController#new as HTML
+  [1m[36mArtist Load (0.0ms)[0m  [1mSELECT "artists".* FROM "artists"  ORDER BY "artists"."name" ASC[0m
+  Rendered songs/new.html.erb within layouts/application (157.0ms)
+Completed 200 OK in 178ms (Views: 177.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/songs" for ::1 at 2015-03-05 15:08:03 -0600
+Processing by SongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"unmHeYC4AI6PlM66vnWT1uPqJAneBs4QdXtYyV2fzuKmbbdAQXlOud59Zo3SeRvxKyUBaOqiBnharUDXTZNZcg==", "song"=>{"name"=>"khorshids test", "year_released"=>"2008", "artist_id"=>"3"}, "button"=>""}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)[0m  [["name", "khorshids test"], ["year_released", "2008"], ["artist_id", 3]]
+  [1m[35m (29.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/songs
+Completed 302 Found in 38ms (ActiveRecord: 30.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:08:03 -0600
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (1.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/songs/11" for ::1 at 2015-03-05 15:08:05 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mSong Load (1.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered songs/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/songs/" for ::1 at 2015-03-05 15:33:16 -0600
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 3969ms
+
+ActionView::Template::Error (TypeError: Object doesn't support this property or method
+  (in C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/turbolinks-2.5.3/lib/assets/javascripts/turbolinks.js.coffee)):
+    17:     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    18:     <!-- Bootstrap -->
+    19:     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    20:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    21: 
+    22:     <%= csrf_meta_tags %>
+    23:   </head>
+  app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb__279207834_51134688'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (72.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:33:21 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 3049ms
+
+ActionView::Template::Error (TypeError: Object doesn't support this property or method
+  (in C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/turbolinks-2.5.3/lib/assets/javascripts/turbolinks.js.coffee)):
+    17:     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    18:     <!-- Bootstrap -->
+    19:     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    20:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    21: 
+    22:     <%= csrf_meta_tags %>
+    23:   </head>
+  app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb__279207834_51134688'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (8.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (75.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:33:25 -0600
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 3008ms
+
+ActionView::Template::Error (TypeError: Object doesn't support this property or method
+  (in C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/turbolinks-2.5.3/lib/assets/javascripts/turbolinks.js.coffee)):
+    17:     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    18:     <!-- Bootstrap -->
+    19:     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    20:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    21: 
+    22:     <%= csrf_meta_tags %>
+    23:   </head>
+  app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb__279207834_51134688'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (72.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:33:29 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 3017ms
+
+ActionView::Template::Error (TypeError: Object doesn't support this property or method
+  (in C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/turbolinks-2.5.3/lib/assets/javascripts/turbolinks.js.coffee)):
+    17:     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    18:     <!-- Bootstrap -->
+    19:     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    20:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    21: 
+    22:     <%= csrf_meta_tags %>
+    23:   </head>
+  app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb__279207834_51134688'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (7.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (72.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:35:14 -0600
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 3035ms
+
+ActionView::Template::Error (TypeError: Object doesn't support this property or method
+  (in C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/turbolinks-2.5.3/lib/assets/javascripts/turbolinks.js.coffee)):
+    17:     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    18:     <!-- Bootstrap -->
+    19:     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    20:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    21: 
+    22:     <%= csrf_meta_tags %>
+    23:   </head>
+  app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb__279207834_51134688'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (7.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (71.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:36:48 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (1.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 3010ms
+
+ActionView::Template::Error (TypeError: Object doesn't support this property or method
+  (in C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/turbolinks-2.5.3/lib/assets/javascripts/turbolinks.js.coffee)):
+    17:     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    18:     <!-- Bootstrap -->
+    19:     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    20:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    21: 
+    22:     <%= csrf_meta_tags %>
+    23:   </head>
+  app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb__279207834_51134688'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (7.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (71.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:44:29 -0600
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (4.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (30.0ms)
+Completed 500 Internal Server Error in 171ms
+
+ActionView::Template::Error (couldn't find file 'turbolinks'
+  (in C:/code/tempo/app/assets/javascripts/application.js:15)):
+    17:     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    18:     <!-- Bootstrap -->
+    19:     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    20:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    21: 
+    22:     <%= csrf_meta_tags %>
+    23:   </head>
+  app/views/layouts/application.html.erb:20:in `_app_views_layouts_application_html_erb__972074119_57591768'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (20.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (91.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:46:21 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (1.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Completed 500 Internal Server Error in 134ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x6e42e20>:0x89b2a50>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Buyflix</a> -->
+    47:           <%= link_to "Buyflix", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb__972074119_57591768'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (71.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:49:05 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (1.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Completed 500 Internal Server Error in 66ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x6e42e20>:0x6794658>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Buyflix</a> -->
+    47:           <%= link_to "Buyflix", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb__972074119_54278436'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (70.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:53:10 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Completed 500 Internal Server Error in 78ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x6e42e20>:0x939dfe0>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Buyflix</a> -->
+    47:           <%= link_to "Buyflix", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb__972074119_54278436'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (69.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:53:16 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Completed 500 Internal Server Error in 60ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x6e42e20>:0x77fb668>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Buyflix</a> -->
+    47:           <%= link_to "Songs", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb__972074119_62898924'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (69.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:53:31 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Completed 500 Internal Server Error in 64ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x6e42e20>:0x93863b8>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Buyflix</a> -->
+    47:           <%= link_to "Tempo", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb__972074119_77298036'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (71.0ms)
+
+
+Started GET "/tempo" for ::1 at 2015-03-05 15:53:38 -0600
+
+ActionController::RoutingError (No route matches [GET] "/tempo"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (88.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (234.0ms)
+
+
+Started GET "/tempo" for ::1 at 2015-03-05 15:57:00 -0600
+
+ActionController::RoutingError (No route matches [GET] "/tempo"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (23.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (21.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (136.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:57:05 -0600
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (4.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (26.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "songs".* FROM "songs"
+Completed 500 Internal Server Error in 266ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x662f880>:0x65dd8a8>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Buyflix</a> -->
+    47:           <%= link_to "Tempo", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb___67046071_53196048'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (74.0ms)
+
+
+Started GET "/tempos" for ::1 at 2015-03-05 15:57:17 -0600
+
+ActionController::RoutingError (No route matches [GET] "/tempos"):
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:22:in `middleware_call'
+  web-console (2.0.0) lib/action_dispatch/debug_exceptions.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_route.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/routes/_table.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/routing_error.html.erb within rescues/layout (84.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:57:28 -0600
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (1.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (3.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "songs".* FROM "songs"
+Completed 500 Internal Server Error in 67ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x662f880>:0x88e01e0>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Buyflix</a> -->
+    47:           <%= link_to "Tempo", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb___67046071_53196048'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (72.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:57:29 -0600
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (2.0ms)
+  [1m[35mCACHE (1.0ms)[0m  SELECT "songs".* FROM "songs"
+Completed 500 Internal Server Error in 61ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x662f880>:0x6d88be0>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Buyflix</a> -->
+    47:           <%= link_to "Tempo", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb___67046071_53196048'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (71.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:57:54 -0600
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (2.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "songs".* FROM "songs"
+Completed 500 Internal Server Error in 58ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x662f880>:0x89f62b0>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Buyflix</a> -->
+    47:           <%= link_to "Songs", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb___67046071_72349944'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (67.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 15:58:11 -0600
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 55ms
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"songs"} missing required keys: [:id]):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Buyflix</a> -->
+    47:           <%= link_to "Songs", song_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb___67046071_53568960'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (69.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 16:06:19 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 114ms
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"songs"} missing required keys: [:id]):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Tempo</a> -->
+    47:           <%= link_to "songs", song_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb___67046071_66511932'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (10.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (144.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 16:06:34 -0600
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 96ms
+
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"songs"} missing required keys: [:id]):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Tempo</a> -->
+    47:           <%= link_to "Songs", song_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb___67046071_30142884'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (12.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (150.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 16:06:47 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (1.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (4.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Completed 500 Internal Server Error in 127ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x662f880>:0x92676f0>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Tempo</a> -->
+    47:           <%= link_to "Songs", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb___67046071_76751616'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (20.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (12.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (168.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 16:19:30 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (1.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (4.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Completed 500 Internal Server Error in 148ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x662f880>:0x8a39948>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Tempo</a> -->
+    47:           <%= link_to "Tempo", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb___67046071_72217380'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (10.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (141.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 16:20:55 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (1.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Completed 500 Internal Server Error in 144ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x662f880>:0x7f1e080>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Tempo</a> -->
+    47:           <%= link_to "Tempo", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb___67046071_66565680'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (10.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (137.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 16:21:20 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (1.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (4.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Completed 500 Internal Server Error in 123ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x662f880>:0x873e658>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Tempo</a> -->
+    47:           <%= link_to "tempo", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb___67046071_70875588'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (11.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (143.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 16:21:34 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (0.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Completed 500 Internal Server Error in 121ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x662f880>:0x49d8c50>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Tempo</a> -->
+    47:           <%= link_to "Tempo", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb___67046071_38687064'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (10.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (141.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 16:24:13 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (1.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Completed 500 Internal Server Error in 123ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x662f880>:0x933ecd0>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Tempo</a> -->
+    47:           <%= link_to "Tempo", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb___67046071_38687064'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (11.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (147.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 16:25:32 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (1.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (4.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+Completed 500 Internal Server Error in 129ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x662f880>:0x8e376e8>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Tempo</a> -->
+    47:           <%= link_to "Tempo", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb___67046071_38687064'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (11.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (142.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (5.0ms)[0m  DELETE FROM "artists"
+  [1m[36mSQL (5.0ms)[0m  [1mDELETE FROM "songs"[0m
+  [1m[35mSQL (4.0ms)[0m  DELETE FROM "surveys"
+  [1m[36mSQL (5.0ms)[0m  [1mDELETE FROM "questions"[0m
+  [1m[35mSQL (4.0ms)[0m  DELETE FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "artists" ("name") VALUES (?)  [["name", "Glenton Davis"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "artists" ("name") VALUES (?)[0m  [["name", "MediaSoulPop"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)  [["name", "Alone"], ["year_released", "2008"], ["artist_id", 5]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)[0m  [["name", "Go Get on the Floor - Extended Club Remix"], ["year_released", "2010"], ["artist_id", 5]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)  [["name", "You Should Know"], ["year_released", "2008"], ["artist_id", 5]]
+  [1m[36m (33.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)[0m  [["name", "She Don't Have to Know"], ["year_released", "2009"], ["artist_id", 6]]
+  [1m[35m (5.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)  [["name", "Dangerously In Love Part 2"], ["year_released", "2009"], ["artist_id", 6]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "surveys" ("name") VALUES (?)[0m  [["name", "Content"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "surveys" ("name") VALUES (?)  [["name", "Community"]]
+  [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "surveys" ("name") VALUES (?)[0m  [["name", "Critique"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "surveys" ("name") VALUES (?)  [["name", "Consumption"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 12], ["survey_id", 5], ["text", "How would you describe this artist's voice?"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 13], ["survey_id", 5], ["text", "How would you describe this artist's voice?"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 13], ["survey_id", 6], ["text", "Is it interesting to you that the artist wrote this song about a molecular reaction he mixed in a Chemistry class?"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 14], ["survey_id", 5], ["text", "How would you describe this artist's voice?"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 14], ["survey_id", 6], ["text", "Is it interesting to you that the artist founded an arts education nonprofit while on tour in 2010?"]]
+  [1m[35m (5.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 14], ["survey_id", 7], ["text", "What would make you like this song more?"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 15], ["survey_id", 5], ["text", "How would you describe this artist's voice?"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 15], ["survey_id", 6], ["text", "Is it interesting to you that the artist credits fellow Ivy-Leaguer John Legend as a creative influence?"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 15], ["survey_id", 7], ["text", "What would make you like this song more?"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 15], ["survey_id", 8], ["text", "How did you ultimately consume this song?"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 16], ["survey_id", 5], ["text", "How would you describe this artist's voice?"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 16], ["survey_id", 6], ["text", "Is it interesting to you that the artist re-arrangned this Beyonce hit to reflect his jazz training?"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 16], ["survey_id", 7], ["text", "What would make you like this song more?"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 16], ["survey_id", 8], ["text", "How did you ultimately consume this song?"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 16], ["survey_id", 6], ["text", "Is it interesting to you that the artist wrote this during a difficult time he experienced at Yale?"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "users" ("name", "email", "password_digest") VALUES (?, ?, ?)  [["name", "Brian"], ["email", "b-eng@kellogg.northwestern.edu"], ["password_digest", "$2a$10$jpGlTgsPt3OpWM3aByNIhOtLUjRpv4vCHn0caib22Bzxh8KfaS3VW"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "artists"
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "songs"[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "surveys"
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "questions"[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+
+
+Started GET "/songs" for ::1 at 2015-03-05 16:28:11 -0600
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (8.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (57.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "songs".* FROM "songs"
+Completed 500 Internal Server Error in 459ms
+
+ActionView::Template::Error (undefined local variable or method `root_path' for #<#<Class:0x6bd1440>:0x6bc96d0>):
+    44: 
+    45:           <!-- Rails equivalent to -->
+    46:           <!-- <a href="/" class="navbar-brand">Tempo</a> -->
+    47:           <%= link_to "Tempo", root_path, class: "navbar-brand" %>
+    48:         </div>
+    49: 
+    50:         <!-- Collect the nav links, forms, and other content for toggling -->
+  app/views/layouts/application.html.erb:47:in `_app_views_layouts_application_html_erb___862552954_56349876'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (11.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (142.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 16:31:57 -0600
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (1.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 198ms (Views: 182.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-03-05 16:31:57 -0600
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-03-05 16:31:57 -0600
+
+
+Started GET "/assets/application-8a8272801b4011d3213ccdba25299149.js?body=1" for ::1 at 2015-03-05 16:31:57 -0600
+
+
+Started GET "/songs" for ::1 at 2015-03-05 16:34:25 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (1.0ms)[0m  SELECT "songs".* FROM "songs"
+  Rendered songs/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 123ms (Views: 108.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 16:36:03 -0600
+Processing by SongsController#index as HTML
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT "songs".* FROM "songs"[0m
+  Rendered songs/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 102ms (Views: 101.0ms | ActiveRecord: 0.0ms)
