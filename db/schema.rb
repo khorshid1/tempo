@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "year_released"
     t.integer "artist_id"
     t.string  "answer"
+    t.string  "survey"
+    t.string  "question"
   end
 
   add_index "songs", ["artist_id"], name: "index_songs_on_artist_id"

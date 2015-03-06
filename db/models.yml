@@ -3,6 +3,9 @@ Song:
   year_released: string
   artist_id: integer
   answer: string
+  survey: string
+  question: string
+
 
 Survey: 
   name: string

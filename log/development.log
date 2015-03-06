@@ -2582,3 +2582,515 @@ Processing by SongsController#show as HTML
   [1m[35mArtist Load (1.0ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 5]]
   Rendered songs/show.html.erb within layouts/application (10.0ms)
 Completed 200 OK in 102ms (Views: 97.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/songs/12" for ::1 at 2015-03-05 17:37:51 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mSong Load (1.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mArtist Load (0.0ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered songs/show.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 128ms (Views: 125.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/songs/12" for ::1 at 2015-03-05 17:38:35 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 12]]
+  Rendered songs/show.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 22ms
+
+SyntaxError (C:/code/tempo/app/views/songs/show.html.erb:42: syntax error, unexpected keyword_ensure, expecting keyword_end
+C:/code/tempo/app/views/songs/show.html.erb:44: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/songs/show.html.erb:42: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/songs/show.html.erb:44: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (14.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (150.0ms)
+
+
+Started GET "/songs/12" for ::1 at 2015-03-05 17:38:55 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mSong Load (0.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mArtist Load (1.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered songs/show.html.erb within layouts/application (36.0ms)
+Completed 500 Internal Server Error in 57ms
+
+ActionView::Template::Error (undefined method `radio' for #<ActionView::Helpers::FormBuilder:0x46bf378>):
+    16: 
+    17:   <div class="form-group">
+    18:     <%= form.label :Do_you_like_the_artist_voice %>
+    19:     <%= form.radio :answer, class: "form-control" %>
+    20:   </div>
+    21: 
+    22:   <div class="radio">
+  app/views/songs/show.html.erb:19:in `block in _app_views_songs_show_html_erb__130166078_37536156'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__130166078_37536156'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (25.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (235.0ms)
+
+
+Started GET "/songs/12" for ::1 at 2015-03-05 17:41:34 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mSong Load (1.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mArtist Load (1.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered songs/show.html.erb within layouts/application (20.0ms)
+Completed 500 Internal Server Error in 41ms
+
+ActionView::Template::Error (wrong number of arguments (2 for 4..6)):
+    16: 
+    17:   <div class="form-group">
+    18:     <%= form.label :Do_you_like_the_artist_voice %>
+    19:     <%= form.collection_select :answer, class: "form-control" %>
+    20:   </div>
+    21: 
+    22:   <div class="radio">
+  app/views/songs/show.html.erb:19:in `block in _app_views_songs_show_html_erb__130166078_78338904'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__130166078_78338904'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (12.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (146.0ms)
+
+
+Started GET "/songs/12" for ::1 at 2015-03-05 17:43:25 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mSong Load (0.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mArtist Load (1.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered songs/show.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 126ms (Views: 121.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/songs/12" for ::1 at 2015-03-05 17:44:56 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mSong Load (0.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mArtist Load (0.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered songs/show.html.erb within layouts/application (18.0ms)
+Completed 500 Internal Server Error in 39ms
+
+ActionView::Template::Error (wrong number of arguments (2 for 4..6)):
+    17: 
+    18:   <div class="form-group">
+    19:     <%= form.label :Do_you_like_the_artist_voice %>
+    20:     <%= form.collection_select :survey, class: "form-control" %>
+    21:   </div>
+    22: 
+    23:   <div class="radio">
+  app/views/songs/show.html.erb:20:in `block in _app_views_songs_show_html_erb__130166078_78676620'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__130166078_78676620'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (12.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (144.0ms)
+
+
+Started GET "/songs/12" for ::1 at 2015-03-05 17:50:36 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mSong Load (1.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mArtist Load (0.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered songs/show.html.erb within layouts/application (27.0ms)
+Completed 500 Internal Server Error in 49ms
+
+ActionView::Template::Error (undefined method `question' for #<Song:0x7a0fa00>):
+    16: 
+    17:   <div class="form-group">
+    18:     <%= form.label :Question_1 %>
+    19:     <%= form.collection_select :question, Question.order(:text), :id, :name, { include_blank: true }, { class: "form-control" } %>
+    20:   </div>
+    21: 
+    22:   <div class="radio">
+  app/views/songs/show.html.erb:19:in `block in _app_views_songs_show_html_erb__130166078_63992364'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__130166078_63992364'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (29.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (166.0ms)
+
+
+Started GET "/songs/12" for ::1 at 2015-03-05 18:01:19 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mSong Load (0.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mArtist Load (0.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered songs/show.html.erb within layouts/application (77.0ms)
+Completed 500 Internal Server Error in 1328ms
+
+ActionView::Template::Error (undefined method `question' for #<Song:0x7ca4198>):
+    16: 
+    17:   <div class="form-group">
+    18:     <%= form.label :Question_1 %>
+    19:     <%= form.collection_select :question, Question.order(:text), :id, :name, { include_blank: true }, { class: "form-control" } %>
+    20:   </div>
+    21: 
+    22:   <div class="radio">
+  app/views/songs/show.html.erb:19:in `block in _app_views_songs_show_html_erb__130166078_63992364'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__130166078_63992364'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (14.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (26.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (174.0ms)
+
+
+Started GET "/songs/12" for ::1 at 2015-03-05 18:01:57 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mSong Load (1.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mArtist Load (1.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered songs/show.html.erb within layouts/application (42.0ms)
+Completed 500 Internal Server Error in 65ms
+
+ActionView::Template::Error (undefined method `survey' for #<Song:0x609fc90>):
+    16: 
+    17:   <div class="form-group">
+    18:     <%= form.label :Question_1 %>
+    19:     <%= form.collection_select :survey, Question.order(:text), :id, :name, { include_blank: true }, { class: "form-control" } %> 
+    20:   </div>
+    21: 
+    22:   <div class="radio">
+  app/views/songs/show.html.erb:19:in `block in _app_views_songs_show_html_erb__130166078_50652360'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__130166078_50652360'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (15.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (19.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (174.0ms)
+
+
+Started GET "/songs/12" for ::1 at 2015-03-05 18:02:21 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mSong Load (1.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mArtist Load (1.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mQuestion Load (1.0ms)[0m  SELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC
+  Rendered songs/show.html.erb within layouts/application (63.0ms)
+Completed 500 Internal Server Error in 84ms
+
+ActionView::Template::Error (undefined method `name' for #<Question:0x6c48468>):
+    16: 
+    17:   <div class="form-group">
+    18:     <%= form.label :Question_1 %>
+    19:     <%= form.collection_select :answer, Question.order(:text), :id, :name, { include_blank: true }, { class: "form-control" } %> 
+    20:   </div>
+    21: 
+    22:   <div class="radio">
+  app/views/songs/show.html.erb:19:in `block in _app_views_songs_show_html_erb__130166078_57139140'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__130166078_57139140'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (13.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (152.0ms)
+
+
+Started GET "/songs/12" for ::1 at 2015-03-05 18:02:38 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 12]]
+  Rendered songs/show.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 27ms
+
+SyntaxError (C:/code/tempo/app/views/songs/show.html.erb:19: syntax error, unexpected ','
+..., Question.order(:text), :id, , { include_blank: true }, { c...
+...                               ^
+C:/code/tempo/app/views/songs/show.html.erb:19: syntax error, unexpected ',', expecting ')'
+...:id, , { include_blank: true }, { class: "form-control" } );...
+...                               ^):
+  app/views/songs/show.html.erb:19: syntax error, unexpected ','
+  app/views/songs/show.html.erb:19: syntax error, unexpected ',', expecting ')'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (23.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (15.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (168.0ms)
+
+
+Started GET "/songs/12" for ::1 at 2015-03-05 18:03:33 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mSong Load (0.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mArtist Load (0.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mQuestion Load (1.0ms)[0m  SELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC
+  Rendered songs/show.html.erb within layouts/application (94.0ms)
+Completed 500 Internal Server Error in 113ms
+
+ActionView::Template::Error (undefined method `name' for #<Question:0x91192b0>):
+    16: 
+    17:   <div class="form-group">
+    18:     <%= form.label :Question_1 %>
+    19:     <%= form.collection_select :answer, Question.order(:text), :id, :name, { include_blank: true }, { class: "form-control" } %> 
+    20:   </div>
+    21: 
+    22:   <div class="radio">
+  app/views/songs/show.html.erb:19:in `block in _app_views_songs_show_html_erb__130166078_78550524'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__130166078_78550524'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (13.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (148.0ms)
+
+
+Started GET "/songs/12" for ::1 at 2015-03-05 18:04:34 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mSong Load (1.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mArtist Load (0.0ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mSurvey Load (1.0ms)[0m  [1mSELECT "surveys".* FROM "surveys"  ORDER BY "surveys"."name" ASC[0m
+  Rendered songs/show.html.erb within layouts/application (61.0ms)
+Completed 200 OK in 168ms (Views: 161.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/songs/12" for ::1 at 2015-03-05 18:05:54 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mSong Load (1.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mArtist Load (1.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered songs/show.html.erb within layouts/application (43.0ms)
+Completed 500 Internal Server Error in 69ms
+
+ActionView::Template::Error (undefined method `question' for #<Song:0x8d6bdd8>):
+    16: 
+    17:   <div class="form-group">
+    18:     <%= form.label :Question_1 %>
+    19:     <%= form.collection_select :question, Survey.order(:text), :id, :name, { include_blank: true }, { class: "form-control" } %> 
+    20:   </div>
+    21: 
+    22:   <div class="radio">
+  app/views/songs/show.html.erb:19:in `block in _app_views_songs_show_html_erb__130166078_74141520'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__130166078_74141520'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (12.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (23.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (165.0ms)
+  [1m[36m (6.0ms)[0m  [1mALTER TABLE "songs" ADD "survey" varchar[0m
+  [1m[35m (6.0ms)[0m  ALTER TABLE "songs" ADD "question" varchar
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+
+  [1m[36m (1.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+[0m
+  [1m[35m (1.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_survey_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_questions_on_song_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_songs_on_artist_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (6.0ms)[0m  DELETE FROM "artists"
+  [1m[36mSQL (5.0ms)[0m  [1mDELETE FROM "songs"[0m
+  [1m[35mSQL (5.0ms)[0m  DELETE FROM "surveys"
+  [1m[36mSQL (5.0ms)[0m  [1mDELETE FROM "questions"[0m
+  [1m[35mSQL (5.0ms)[0m  DELETE FROM "users"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "artists" ("name") VALUES (?)  [["name", "Glenton Davis"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "artists" ("name") VALUES (?)[0m  [["name", "MediaSoulPop"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)  [["name", "Alone"], ["year_released", "2008"], ["artist_id", 7]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)[0m  [["name", "Go Get on the Floor - Extended Club Remix"], ["year_released", "2010"], ["artist_id", 7]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)  [["name", "You Should Know"], ["year_released", "2008"], ["artist_id", 7]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)[0m  [["name", "She Don't Have to Know"], ["year_released", "2009"], ["artist_id", 8]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "songs" ("name", "year_released", "artist_id") VALUES (?, ?, ?)  [["name", "Dangerously In Love Part 2"], ["year_released", "2009"], ["artist_id", 8]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "surveys" ("name") VALUES (?)[0m  [["name", "Content"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "surveys" ("name") VALUES (?)  [["name", "Community"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "surveys" ("name") VALUES (?)[0m  [["name", "Critique"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "surveys" ("name") VALUES (?)  [["name", "Consumption"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 17], ["survey_id", 9], ["text", "How would you describe this artist's voice?"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 18], ["survey_id", 9], ["text", "How would you describe this artist's voice?"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 18], ["survey_id", 10], ["text", "Is it interesting to you that the artist wrote this song about a molecular reaction he mixed in a Chemistry class?"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 19], ["survey_id", 9], ["text", "How would you describe this artist's voice?"]]
+  [1m[36m (5.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 19], ["survey_id", 10], ["text", "Is it interesting to you that the artist founded an arts education nonprofit while on tour in 2010?"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 19], ["survey_id", 11], ["text", "What would make you like this song more?"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 20], ["survey_id", 9], ["text", "How would you describe this artist's voice?"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 20], ["survey_id", 10], ["text", "Is it interesting to you that the artist credits fellow Ivy-Leaguer John Legend as a creative influence?"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 20], ["survey_id", 11], ["text", "What would make you like this song more?"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 20], ["survey_id", 12], ["text", "How did you ultimately consume this song?"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 21], ["survey_id", 9], ["text", "How would you describe this artist's voice?"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 21], ["survey_id", 10], ["text", "Is it interesting to you that the artist re-arrangned this Beyonce hit to reflect his jazz training?"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 21], ["survey_id", 11], ["text", "What would make you like this song more?"]]
+  [1m[35m (4.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)  [["song_id", 21], ["survey_id", 12], ["text", "How did you ultimately consume this song?"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "questions" ("song_id", "survey_id", "text") VALUES (?, ?, ?)[0m  [["song_id", 21], ["survey_id", 10], ["text", "Is it interesting to you that the artist wrote this during a difficult time he experienced at Yale?"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "users" ("name", "email", "password_digest") VALUES (?, ?, ?)  [["name", "Brian"], ["email", "b-eng@kellogg.northwestern.edu"], ["password_digest", "$2a$10$te.r5Hd3/VTG2Lr4ZaBb5uQd8GuSS7LoTklgH.QHipZbyaGk.mSBW"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "artists"
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "songs"[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "surveys"
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "questions"[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "users"

@@ -14,18 +14,26 @@
     <%= form.text_field :answer, class: "form-control" %>
   </div>
 
+  <div class="form-group">
+    <%= form.label :Question_1 %>
+    <%= form.collection_select :question, Survey.order(:text), :id, :name, { include_blank: true }, { class: "form-control" } %> 
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Question_1 %>
+    <%= form.collection_select :answer, Survey.order(:name), :id, :name, { include_blank: true }, { class: "form-control" } %> 
+  </div>
+
   <div class="radio">
     <%= form.label :Do_you_like_the_artist_voice %>
       <label>
-        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-    Option one is this and that; be sure to include why it's great
+        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Answer 1
       </label>
   </div>
 
   <div class="radio">
     <label>
-      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-      Option two can be something else and selecting it will deselect option one
+      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Answer 2
     </label>
   </div>
 

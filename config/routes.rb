@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :songs
     resources :artists
     resources :users
+    resources :surveys
     
     root to: 'songs#index'
 
