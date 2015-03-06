@@ -3094,3 +3094,476 @@ ActionView::Template::Error (undefined method `question' for #<Song:0x8d6bdd8>):
   [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "surveys"
   [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "questions"[0m
   [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "users"
+
+
+Started GET "/songs/12" for ::1 at 2015-03-05 18:14:09 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 12]]
+  Rendered songs/show.html.erb within layouts/application (26.0ms)
+Completed 500 Internal Server Error in 300ms
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h1>Song Detail</h1>
+    2: 
+    3: <p>Title: <%= @song.name %></p>
+    4: 
+    5: <p>Year Released: <%= @song.year_released %></p>
+    6: 
+  app/views/songs/show.html.erb:3:in `_app_views_songs_show_html_erb__556876087_56158908'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (11.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (44.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (188.0ms)
+
+
+Started GET "/songs" for ::1 at 2015-03-05 18:14:16 -0600
+Processing by SongsController#index as HTML
+  [1m[35mSong Load (1.0ms)[0m  SELECT "songs".* FROM "songs"
+  [1m[36mArtist Load (1.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mArtist Load (1.0ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 8]]
+  Rendered songs/index.html.erb within layouts/application (111.0ms)
+Completed 200 OK in 253ms (Views: 248.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:14:19 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mSong Load (0.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mArtist Load (0.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mSurvey Load (2.0ms)[0m  SELECT "surveys".* FROM "surveys"  ORDER BY "surveys"."text" ASC
+SQLite3::SQLException: no such column: surveys.text: SELECT "surveys".* FROM "surveys"  ORDER BY "surveys"."text" ASC
+  Rendered songs/show.html.erb within layouts/application (130.0ms)
+Completed 500 Internal Server Error in 155ms
+
+ActionView::Template::Error (SQLite3::SQLException: no such column: surveys.text: SELECT "surveys".* FROM "surveys"  ORDER BY "surveys"."text" ASC):
+    16: 
+    17:   <div class="form-group">
+    18:     <%= form.label :Question_1 %>
+    19:     <%= form.collection_select :question, Survey.order(:text), :id, :name, { include_blank: true }, { class: "form-control" } %> 
+    20:   </div>
+    21: 
+    22:   <div class="form-group">
+  app/views/songs/show.html.erb:19:in `block in _app_views_songs_show_html_erb__556876087_56158908'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__556876087_56158908'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (14.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (152.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:15:01 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mSong Load (1.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mArtist Load (1.0ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mSurvey Load (0.0ms)[0m  [1mSELECT "surveys".* FROM "surveys"  ORDER BY "surveys"."name" ASC[0m
+  Rendered songs/show.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 109ms (Views: 104.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:15:27 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mSong Load (0.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mArtist Load (1.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mQuestion Load (1.0ms)[0m  SELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC
+  Rendered songs/show.html.erb within layouts/application (48.0ms)
+Completed 500 Internal Server Error in 74ms
+
+ActionView::Template::Error (undefined method `name' for #<Question:0x48cc780>):
+    16: 
+    17:   <div class="form-group">
+    18:     <%= form.label :Question_1 %>
+    19:     <%= form.collection_select :answer, Question.order(:text), :id, :name, { include_blank: true }, { class: "form-control" } %> 
+    20:   </div>
+    21: 
+    22:   <div class="radio">
+  app/views/songs/show.html.erb:19:in `block in _app_views_songs_show_html_erb__556876087_39732480'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__556876087_39732480'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (12.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (146.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:15:38 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mSong Load (1.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mArtist Load (1.0ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mQuestion Load (1.0ms)[0m  [1mSELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC[0m
+  Rendered songs/show.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 119ms (Views: 112.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:15:55 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mSong Load (1.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mArtist Load (0.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mQuestion Load (1.0ms)[0m  SELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC
+  Rendered songs/show.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 132ms (Views: 129.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:16:36 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mArtist Load (0.0ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mQuestion Load (1.0ms)[0m  [1mSELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC[0m
+  Rendered songs/show.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 150ms (Views: 145.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:21:45 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mSong Load (1.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 17]]
+  Rendered songs/show.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 26ms
+
+SyntaxError (C:/code/tempo/app/views/songs/show.html.erb:45: syntax error, unexpected keyword_ensure, expecting keyword_end
+C:/code/tempo/app/views/songs/show.html.erb:47: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/songs/show.html.erb:45: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/songs/show.html.erb:47: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (11.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (142.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:22:05 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mSong Load (1.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mArtist Load (0.0ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mQuestion Load (1.0ms)[0m  [1mSELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC[0m
+  Rendered songs/show.html.erb within layouts/application (40.0ms)
+Completed 500 Internal Server Error in 60ms
+
+ActionView::Template::Error (undefined local variable or method `song_id' for #<#<Class:0x6bc5cf8>:0x800e4d0>):
+    19:     <%= form.collection_select :answer, Question.order(:text), :id, :text, { include_blank: false }, { class: "form-control" } %> 
+    20:   </div>
+    21: 
+    22:               <% if song_id %>
+    23:                 <a href="#">
+    24:                   <i class="fa fa-user"></i>
+    25:                   Hi, <%= song_id.question.try(:name) %>
+  app/views/songs/show.html.erb:22:in `block in _app_views_songs_show_html_erb__556876087_67135896'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__556876087_67135896'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (13.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (141.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:22:19 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mSong Load (0.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mArtist Load (0.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mQuestion Load (1.0ms)[0m  SELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC
+  Rendered songs/show.html.erb within layouts/application (36.0ms)
+Completed 500 Internal Server Error in 58ms
+
+ActionView::Template::Error (undefined local variable or method `song' for #<#<Class:0x6bc5cf8>:0x7b7ef48>):
+    19:     <%= form.collection_select :answer, Question.order(:text), :id, :text, { include_blank: false }, { class: "form-control" } %> 
+    20:   </div>
+    21: 
+    22:               <% if song.id %>
+    23:                 <a href="#">
+    24:                   <i class="fa fa-user"></i>
+    25:                   Hi, <%= song_id.question.try(:name) %>
+  app/views/songs/show.html.erb:22:in `block in _app_views_songs_show_html_erb__556876087_64745184'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__556876087_64745184'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (11.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (142.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:22:33 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mSong Load (1.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mArtist Load (0.0ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mQuestion Load (0.0ms)[0m  [1mSELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC[0m
+  Rendered songs/show.html.erb within layouts/application (39.0ms)
+Completed 500 Internal Server Error in 63ms
+
+ActionView::Template::Error (undefined local variable or method `song' for #<#<Class:0x6bc5cf8>:0x7f237f8>):
+    19:     <%= form.collection_select :answer, Question.order(:text), :id, :text, { include_blank: false }, { class: "form-control" } %> 
+    20:   </div>
+    21: 
+    22:               <% if song %>
+    23:                 <a href="#">
+    24:                   <i class="fa fa-user"></i>
+    25:                   Hi, <%= song_id.question.try(:name) %>
+  app/views/songs/show.html.erb:22:in `block in _app_views_songs_show_html_erb__556876087_66655032'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__556876087_66655032'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (12.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (136.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:22:40 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mSong Load (1.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mArtist Load (0.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mQuestion Load (1.0ms)[0m  SELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC
+  Rendered songs/show.html.erb within layouts/application (39.0ms)
+Completed 500 Internal Server Error in 59ms
+
+ActionView::Template::Error (undefined local variable or method `song_id' for #<#<Class:0x6bc5cf8>:0x77fbc80>):
+    22:               <% if @song %>
+    23:                 <a href="#">
+    24:                   <i class="fa fa-user"></i>
+    25:                   Hi, <%= song_id.question.try(:name) %>
+    26:                 </a>
+    27:               <% end %>
+    28: 
+  app/views/songs/show.html.erb:25:in `block in _app_views_songs_show_html_erb__556876087_62903676'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__556876087_62903676'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (13.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (144.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:22:54 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mArtist Load (1.0ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mQuestion Load (1.0ms)[0m  [1mSELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC[0m
+  Rendered songs/show.html.erb within layouts/application (41.0ms)
+Completed 500 Internal Server Error in 67ms
+
+ActionView::Template::Error (undefined local variable or method `song' for #<#<Class:0x6bc5cf8>:0x63797d0>):
+    22:               <% if @song %>
+    23:                 <a href="#">
+    24:                   <i class="fa fa-user"></i>
+    25:                   Hi, <%= song.question.try(:name) %>
+    26:                 </a>
+    27:               <% end %>
+    28: 
+  app/views/songs/show.html.erb:25:in `block in _app_views_songs_show_html_erb__556876087_52141224'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__556876087_52141224'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (7.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (12.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (147.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:23:01 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mSong Load (1.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mArtist Load (0.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mQuestion Load (1.0ms)[0m  SELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC
+  Rendered songs/show.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 113ms (Views: 110.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:23:43 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mArtist Load (1.0ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mQuestion Load (0.0ms)[0m  [1mSELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC[0m
+  Rendered songs/show.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 108ms (Views: 103.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:24:20 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mSong Load (1.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mArtist Load (1.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mQuestion Load (1.0ms)[0m  SELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC
+  Rendered songs/show.html.erb within layouts/application (23.0ms)
+Completed 500 Internal Server Error in 44ms
+
+ActionView::Template::Error (undefined method `find_by' for nil:NilClass):
+    22:               <% if @song %>
+    23:                 <a href="#">
+    24:                   <i class="fa fa-user"></i>
+    25:                   Hi, <%= @question.find_by(:name) %>
+    26:                 </a>
+    27:               <% end %>
+    28: 
+  app/views/songs/show.html.erb:25:in `block in _app_views_songs_show_html_erb__556876087_56016144'
+  app/views/songs/show.html.erb:11:in `_app_views_songs_show_html_erb__556876087_56016144'
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (11.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/template_error.html.erb within rescues/layout (150.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:24:34 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mSong Load (1.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mArtist Load (1.0ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mQuestion Load (1.0ms)[0m  [1mSELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC[0m
+  Rendered songs/show.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 118ms (Views: 111.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:24:47 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mSong Load (1.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mArtist Load (0.0ms)[0m  [1mSELECT  "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mQuestion Load (0.0ms)[0m  SELECT "questions".* FROM "questions"  ORDER BY "questions"."text" ASC
+  Rendered songs/show.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 105ms (Views: 103.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:24:59 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 17]]
+  Rendered songs/show.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 25ms
+
+SyntaxError (C:/code/tempo/app/views/songs/show.html.erb:22: syntax error, unexpected keyword_do_block, expecting keyword_end
+'.freeze;               do @song 
+                          ^
+C:/code/tempo/app/views/songs/show.html.erb:46: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/songs/show.html.erb:22: syntax error, unexpected keyword_do_block, expecting keyword_end
+  app/views/songs/show.html.erb:46: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (9.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (17.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (188.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:25:11 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mSong Load (1.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 17]]
+  Rendered songs/show.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 25ms
+
+SyntaxError (C:/code/tempo/app/views/songs/show.html.erb:22: syntax error, unexpected '\n', expecting :: or '[' or '.'
+C:/code/tempo/app/views/songs/show.html.erb:46: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/songs/show.html.erb:22: syntax error, unexpected '\n', expecting :: or '[' or '.'
+  app/views/songs/show.html.erb:46: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (8.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (13.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (146.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:25:40 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mSong Load (1.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 17]]
+  Rendered songs/show.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 26ms
+
+SyntaxError (C:/code/tempo/app/views/songs/show.html.erb:22: syntax error, unexpected keyword_do, expecting :: or '[' or '.'
+'.freeze;               for @song do |question| 
+                                    ^
+C:/code/tempo/app/views/songs/show.html.erb:46: syntax error, unexpected keyword_ensure, expecting end-of-input):
+  app/views/songs/show.html.erb:22: syntax error, unexpected keyword_do, expecting :: or '[' or '.'
+  app/views/songs/show.html.erb:46: syntax error, unexpected keyword_ensure, expecting end-of-input
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (11.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (140.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:26:09 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mSong Load (1.0ms)[0m  SELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1  [["id", 17]]
+  Rendered songs/show.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 27ms
+
+SyntaxError (C:/code/tempo/app/views/songs/show.html.erb:22: syntax error, unexpected keyword_do, expecting :: or '[' or '.'
+'.freeze;               for @song do |question| 
+                                    ^
+C:/code/tempo/app/views/songs/show.html.erb:45: syntax error, unexpected keyword_end, expecting end-of-input
+'.freeze; end ;@output_buffer.to_s
+             ^):
+  app/views/songs/show.html.erb:22: syntax error, unexpected keyword_do, expecting :: or '[' or '.'
+  app/views/songs/show.html.erb:45: syntax error, unexpected keyword_end, expecting end-of-input
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (14.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (151.0ms)
+
+
+Started GET "/songs/17" for ::1 at 2015-03-05 18:26:21 -0600
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mSong Load (0.0ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 17]]
+  Rendered songs/show.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 23ms
+
+SyntaxError (C:/code/tempo/app/views/songs/show.html.erb:22: syntax error, unexpected keyword_do, expecting :: or '[' or '.'
+'.freeze;               for @song do |question| 
+                                    ^
+C:/code/tempo/app/views/songs/show.html.erb:45: syntax error, unexpected keyword_end, expecting end-of-input
+ end ;@output_buffer.to_s
+    ^):
+  app/views/songs/show.html.erb:22: syntax error, unexpected keyword_do, expecting :: or '[' or '.'
+  app/views/songs/show.html.erb:45: syntax error, unexpected keyword_end, expecting end-of-input
+
+
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (13.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (143.0ms)

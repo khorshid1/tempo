@@ -2,8 +2,6 @@
 <table class="table">
 <% @songs = Song.all %>
 
-<%= link_to 'New song', new_song_path %>
-
 <div class="row">
   <% @songs.each do |song| %>
     <div class="col-sm-6 col-md-4">

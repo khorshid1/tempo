@@ -16,13 +16,15 @@
 
   <div class="form-group">
     <%= form.label :Question_1 %>
-    <%= form.collection_select :question, Survey.order(:text), :id, :name, { include_blank: true }, { class: "form-control" } %> 
+    <%= form.collection_select :answer, Question.order(:text), :id, :text, { include_blank: false }, { class: "form-control" } %> 
   </div>
 
-  <div class="form-group">
-    <%= form.label :Question_1 %>
-    <%= form.collection_select :answer, Survey.order(:name), :id, :name, { include_blank: true }, { class: "form-control" } %> 
-  </div>
+              <% for @song do |question| %>
+                <a href="#">
+                  <i class="fa fa-user"></i>
+                  Hi, <%= @question.try(:text) %>
+                </a>
+              <% end %>
 
   <div class="radio">
     <%= form.label :Do_you_like_the_artist_voice %>
