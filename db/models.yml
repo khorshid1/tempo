@@ -2,13 +2,13 @@ Song:
   name: string
   year_released: string
   artist_id: integer
-  answer: string
   survey: string
   question: string
-
+  image: string
 
 Survey: 
   name: string
+  song_id: integer
 
 Question: 
   text: string
@@ -22,21 +22,21 @@ User:
   email: string
   password_digest: string
   name: string
-#  answer: string
 
-#Owner: 
-#  song_id: integer
-#  artist_id: integer
+Answer: 
+  text: string 
+  survey_id: integer
+# question_id: integer
+  user_id: integer
 
 #Choice: 
 #  question_id: integer
 #  song_id: integer
 #  text: string
 
-#Answer: 
-#  question_id: integer
-#  choice_id: integer
+#Owner: 
 #  song_id: integer
+#  artist_id: integer
 
 #Review: 
 #  song_id: integer

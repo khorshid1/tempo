@@ -10,7 +10,7 @@
 
 <%= form_for @song do |form| %>
   <div class="form-group">
-    <%= form.label :Do_you_like_the_artist_voice %>
+    <%= form.label :Question %>
     <%= form.text_field :answer, class: "form-control" %>
   </div>
 
@@ -19,12 +19,12 @@
     <%= form.collection_select :answer, Question.order(:text), :id, :text, { include_blank: false }, { class: "form-control" } %> 
   </div>
 
-              <% for @song do |question| %>
-                <a href="#">
-                  <i class="fa fa-user"></i>
-                  Hi, <%= @question.try(:text) %>
-                </a>
-              <% end %>
+  <div class="form-group">
+    <%= form.label :Question_1 %>
+    <%= form.collection_radio_buttons :answer, Question.order(:text), :id, :text, { include_blank: false }, { class: "form-control" } %> 
+  </div>
+
+
 
   <div class="radio">
     <%= form.label :Do_you_like_the_artist_voice %>

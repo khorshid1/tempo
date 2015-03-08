@@ -1,4 +1,4 @@
-class ActorsController < ApplicationController
+class SurveysController < ApplicationController
 
   def index
     @survey = Survey.all
