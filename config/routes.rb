@@ -4,8 +4,9 @@ Rails.application.routes.draw do
     resources :artists
     resources :users
     resources :surveys
-    resources :answers
-    resources :choices
+    resources :sessions
+
+    get "/login", to: "sessions#new"
     
     root to: 'songs#index'
 

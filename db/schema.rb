@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
+  create_table "answers", force: :cascade do |t|
+    t.string  "text"
+    t.integer "survey_id"
+    t.integer "user_id"
+  end
+
+  add_index "answers", ["survey_id"], name: "index_answers_on_survey_id"
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id"
+
   create_table "artists", force: :cascade do |t|
     t.string "name"
   end
@@ -30,16 +39,19 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "name"
     t.string  "year_released"
     t.integer "artist_id"
-    t.string  "answer"
     t.string  "survey"
     t.string  "question"
+    t.string  "image"
   end
 
   add_index "songs", ["artist_id"], name: "index_songs_on_artist_id"
 
   create_table "surveys", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "song_id"
   end
+
+  add_index "surveys", ["song_id"], name: "index_surveys_on_song_id"
 
   create_table "users", force: :cascade do |t|
     t.string "email"
