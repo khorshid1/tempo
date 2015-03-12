@@ -1,0 +1,12 @@
+<h1>Take a Survey</h1>
+
+<%= form_for (@song, @survey) do |form| %>
+
+ <div class="form-group">
+    <%= form.label :Question %>
+    <%= form.select :rating, Answer.order(:text), :id, :text, { include_blank: false }, { class: "form-control" } %> 
+  </div>
+
+<%= form.button 'Submit', class: "btn btn-success" %>
+
+<% end %> 

@@ -9,7 +9,8 @@ Song:
 Survey: 
   name: string
   song_id: integer
-
+  rating: integer
+  
 Question: 
   text: string
   song_id: integer

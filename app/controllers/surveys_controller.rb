@@ -1,25 +1,11 @@
 class SurveysController < ApplicationController
-
-#  def index
- #   @survey = Survey.all
-#  end
-
-#  def show
- #   @survey = Survey.find_by(id: params["id"])
-  #  @questions = @survey.questions
-#  end
+  before_action :find_song
 
   def new
-    @song = Song.find_by(id: params["song_id"])
     @survey = Survey.new
   end
 
-  def show
-    @song = Song.find_by(id: params["id"])
-  end
-
   def create
-    @song = Song.find_by(id: params["song_id"])
     survey_params = params.require(:survey).permit(:answer)
     @survey = @song.survey.new(survey_params)
     @survey.user = current_user
@@ -28,6 +14,10 @@ class SurveysController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def find_song
+    @song = Song.find_by(id: params["song_id"])
   end
 
 end

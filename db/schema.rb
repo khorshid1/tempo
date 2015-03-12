@@ -17,8 +17,10 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "text"
     t.integer "survey_id"
     t.integer "user_id"
+    t.integer "question_id"
   end
 
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
   add_index "answers", ["survey_id"], name: "index_answers_on_survey_id"
   add_index "answers", ["user_id"], name: "index_answers_on_user_id"
 
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "surveys", force: :cascade do |t|
     t.string  "name"
     t.integer "song_id"
+    t.integer "rating"
   end
 
   add_index "surveys", ["song_id"], name: "index_surveys_on_song_id"

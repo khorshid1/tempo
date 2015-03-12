@@ -1,6 +1,6 @@
 class Survey < ActiveRecord::Base
   belongs_to :song
-  has_many :answers
+  belongs_to :user
   #has_many :questions, dependent: :destroy
   #has_many :songs, through: :questions
 end

@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
-    resources :songs
+    resources :songs do 
+      resources :surveys
+    end
+    
     resources :artists
     resources :users
-    resources :surveys
     resources :sessions
 
     get "/login", to: "sessions#new"
