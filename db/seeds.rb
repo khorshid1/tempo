@@ -34,29 +34,29 @@ survey_five = Survey.create(name: "Dangerously In Love Part 2", song_id: dangero
 puts "Creating questions..."
 
 # Create the questions for Alone
-Question.create(song_id: alone.id, survey_id: alone.id, text: "How would you describe this artist's voice?")
+Question.create(song_id: alone.id, survey_id: survey_one.id, text: "How would you describe this artist's voice?")
 
 # Create the questions for Go Get on the Floor
 #Question.create(song_id: go_get_on_the_floor.id, survey_id: content.id, text: "How would you describe this artist's voice?")
-Question.create(song_id: go_get_on_the_floor.id, survey_id: go_get_on_the_floor.id, text: "Is it interesting to you that the artist wrote this song about a molecular reaction he mixed in a Chemistry class?")
+Question.create(song_id: go_get_on_the_floor.id, survey_id: survey_two.id, text: "Is it interesting to you that the artist wrote this song about a molecular reaction he mixed in a Chemistry class?")
 
 # Create the questions for You Should Know
 #Question.create(song_id: you_should_know.id, survey_id: content.id, text: "How would you describe this artist's voice?")
 #Question.create(song_id: you_should_know.id, survey_id: community.id, text: "Is it interesting to you that the artist founded an arts education nonprofit while on tour in 2010?")
-Question.create(song_id: you_should_know.id, survey_id: you_should_know.id, text: "What would make you like this song more?")
+Question.create(song_id: you_should_know.id, survey_id: survey_three.id, text: "What would make you like this song more?")
 
 # Create the questions for She Don't Have to Know
 #Question.create(song_id: she_dont_have_to_know.id, survey_id: content.id, text: "How would you describe this artist's voice?")
 #Question.create(song_id: she_dont_have_to_know.id, survey_id: community.id, text: "Is it interesting to you that the artist credits fellow Ivy-Leaguer John Legend as a creative influence?")
 #Question.create(song_id: she_dont_have_to_know.id, survey_id: critique.id, text: "What would make you like this song more?")
-Question.create(song_id: she_dont_have_to_know.id, survey_id: she_dont_have_to_know.id, text: "How did you ultimately consume this song?")
+Question.create(song_id: she_dont_have_to_know.id, survey_id: survey_four.id, text: "How did you ultimately consume this song?")
 
 # Create the questions for Dangerously in Love Two
 #Question.create(song_id: dangerously_in_love_two.id, survey_id: content.id, text: "How would you describe this artist's voice?")
 #Question.create(song_id: dangerously_in_love_two.id, survey_id: community.id, text: "Is it interesting to you that the artist re-arrangned this Beyonce hit to reflect his jazz training?")
 #Question.create(song_id: dangerously_in_love_two.id, survey_id: critique.id, text: "What would make you like this song more?")
 #Question.create(song_id: dangerously_in_love_two.id, survey_id: consumption.id, text: "How did you ultimately consume this song?")
-Question.create(song_id: dangerously_in_love_two.id, survey_id: dangerously_in_love_two.id, text: "Is it interesting to you that the artist wrote this during a difficult time he experienced at Yale?")
+Question.create(song_id: dangerously_in_love_two.id, survey_id: survey_five.id, text: "Is it interesting to you that the artist wrote this during a difficult time he experienced at Yale?")
 
 puts "Creating answers..."
 # Create the answers to Alone
